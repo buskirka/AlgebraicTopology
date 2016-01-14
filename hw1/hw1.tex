@@ -32,7 +32,7 @@ $x \in B \subseteq U$.
 \begin{definition}[Topological basis, def.\ B]\label{topbasisB}
 A \textbf{basis} for a topological space $(X,\tau)$ is a collection $\beta \subseteq \tau$ such that
 \begin{enumerate}
-\item $\beta$ covers $X$; that is, $\bigcap_{B \in \beta} B = X$, and
+\item $\beta$ covers $X$; that is, $\bigcup_{B \in \beta} B = X$, and
 \item any $U \in \tau$ can be written as a union of sets in $\beta$.
 \end{enumerate}
 \end{definition}
@@ -46,7 +46,7 @@ and one matching Definition \ref{topbasisB} as a \textbf{B-basis}.
 
 (A$\to$B)
 
-Suppose that $\beta\subset\tau$ is an A-basis for $(X,\tau)$. Then for any $x \in X$, there must
+Suppose that $\beta\subseteq\tau$ is an A-basis for $(X,\tau)$. Then for any $x \in X$, there must
 exist some $B \in \tau$ such that $x \in B \subseteq X$. Hence every element of $X$ is in some
 element of $\beta$; $\beta$ covers $X$, the first condition of \ref{topbasisB}. 
 
@@ -55,10 +55,23 @@ by \ref{topbasisA} such that $x \in B_x \subseteq U$. Then observe that
 $\bigcup_{x\in U} B_x = U$; if $x_0 \in U$, then $x_0 \in B_{x_0} \subseteq \bigcup_{x\in U} B_x$
 and thus $U \subseteq \bigcup_{x\in U} B_x$. If $x_0 \in U^C$, then $x_0 \not\in B_x$ for each
 $x\in U$. Consequently, $x_0 \not\in\bigcup_{x\in U} B_x$. Hence 
-$U^C \subseteq \p{\bigcup_{x\in U} B_x}^C$. 
+$U^C \subseteq \p{\bigcup_{x\in U} B_x}^C$, and thus $\bigcup_{x\in U} B_x \subseteq U$. Thus,
+$U = \bigcup_{x\in U}$. Hence any arbitrary open set in $\tau$ can be expressed as a union of sets
+in $\beta$, completing the definition of a B-basis. All A-bases are also B-bases.
 
 (B$\to$A)
 
+Suppose that $\beta\subseteq\tau$ is a B-basis for $(X,\tau)$. Then suppose we are given some 
+$U \in \tau$ and $x \in U$. Then by the definition of a B-basis, there exists some 
+$\Gamma \subseteq \beta$ such that $\bigcup_{\gamma \in \Gamma} \gamma = U$. Since
+$x = U = \bigcup_{\gamma\in\Gamma} \gamma$, $x \in \gamma_x$ for some 
+$\gamma_x \in \Gamma \subseteq \beta$. 
+Furthermore, by the nature of a union, $\gamma_x \subseteq U$. 
+Hence for each $U$, and $x \in U$, there exists some 
+$\gamma_x \in \beta$ such that $x \in \gamma_x \subseteq U$. Consequently, $\beta$ is also an
+A-basis. All B-bases are also A-bases.
+
+Definitions \ref{topbasisA} and \ref{topbasisB} imply each other, and thus they are equivalent.
 \end{proof}
 
 
