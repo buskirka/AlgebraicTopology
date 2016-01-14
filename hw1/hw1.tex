@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\title{Algebraic Topology Homework 1}
+\author{Adam Buskirk}
+
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{conjecture}[subsection]{Conjecture}
+\newtheorem{lemma}[subsection]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[subsection]{Definition}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\set}[1]{\left\{#1\right\}}
+% \newcommand{\p}[1]{\left(#1\right)}
+
+\begin{document}
+\maketitle
+\section{Problem 1}
+\begin{definition}[Topological basis, def.\ A]\label{topbasisA}
+A \textbf{basis} for a topological space $(X,\tau)$ is a collection $\beta \subseteq \tau$ 
+such that for any $U \in \tau$ and $x \in U$, there exists some $B \in \beta$ such that
+$x \in B \subseteq U$.
+\end{definition}
+\begin{definition}[Topological basis, def.\ B]\label{topbasisB}
+A \textbf{basis} for a topological space $(X,\tau)$ is a collection $\beta \subseteq \tau$ such that
+\begin{enumerate}
+\item $\beta$ covers $X$; that is, $\bigcap_{B \in \beta} B = X$, and
+\item any $U \in \tau$ can be written as a union of sets in $\beta$.
+\end{enumerate}
+\end{definition}
+\begin{theorem}
+Definitions \ref{topbasisA} and \ref{topbasisB} are equivalent.
+\end{theorem}
+\begin{proof}
+For the sake of discussion we will refer to a collection $\beta \subseteq\tau$ 
+matching Definition \ref{topbasisA} as a \textbf{A-basis} 
+and one matching Definition \ref{topbasisB} as a \textbf{B-basis}.
+
+(A$\to$B)
+
+Suppose that $\beta\subset\tau$ is an A-basis for $(X,\tau)$. Then for any $x \in X$, there must
+exist some $B \in \tau$ such that $x \in B \subseteq X$. Hence every element of $X$ is in some
+element of $\beta$; $\beta$ covers $X$, the first condition of \ref{topbasisB}. 
+
+Consider then an arbitrary $U \in \tau$; for each $x \in U$, let $B_x$ denote the set guaranteed 
+by \ref{topbasisA} such that $x \in B_x \subseteq U$. Then observe that 
+$\bigcup_{x\in U} B_x = U$; if $x_0 \in U$, then $x_0 \in B_{x_0} \subseteq \bigcup_{x\in U} B_x$
+and thus $U \subseteq \bigcup_{x\in U} B_x$. If $x_0 \in U^C$, then $x_0 \not\in B_x$ for each
+$x\in U$. Consequently, $x_0 \not\in\bigcup_{x\in U} B_x$. Hence $U^C \subseteq \p{\bigcup_{x\in U} B_x}^C$.
+
+(B$\to$A)
+
+\end{proof}
+
+
+\end{document}
