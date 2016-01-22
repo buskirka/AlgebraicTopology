@@ -6,6 +6,7 @@
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage{tikz}
 \usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
 
 \newtheorem{theorem}[subsection]{Theorem}
 \newtheorem{conjecture}[subsection]{Conjecture}
@@ -23,7 +24,25 @@
 
 \begin{document}
 \maketitle
-\section{Problem 1}
+\section{Exercise 2.9}
+\begin{theorem}
+Let $X$ be a topological space and let $A \subseteq X$ be any subset.
+\begin{enumerate}[(a)]
+\item A point is in $\operatorname{Int} A$ iff it has a neighborhood contained in $A$.
+\item A point is in $\operatorname{Ext} A$ iff it has a neighborhood contained in $A^C$.
+\item A point is in $\partial A$ iff every neighborhood contains a point of $A$ and a point of $A^C$.
+\item A point is in $\bar{A}$ iff every neighborhood of it contains a point of $A$. 
+\item $\bar{A} = A \cup \partial A = \operatorname{Int} A \cup \partial A$.
+\item $\operatorname{Int} A$ and $\operatorname{Ext} A$ are open in $X$, while $\bar{A}$
+    and $\partial A$ are closed in $X$.
+\item The following are equivalent:
+    \begin{enumerate}
+    \end{enumerate}
+\end{enumerate}
+\end{theorem}
+\section{Exercise 2.11}
+\section{Exercise 2.32}
+\section{Exercise 2.40*}
 \begin{definition}[Topological basis, def.\ A]\label{topbasisA}
 A \textbf{basis} for a topological space $(X,\tau)$ is a collection $\beta \subseteq \tau$ 
 such that for any $U \in \tau$ and $x \in U$, there exists some $B \in \beta$ such that
@@ -74,5 +93,10 @@ A-basis. All B-bases are also A-bases.
 Definitions \ref{topbasisA} and \ref{topbasisB} imply each other, and thus they are equivalent.
 \end{proof}
 
+\section{Problem 2.1d}
+\section{Problem 2.4}
+\section{Problem 2.14}
+\section{Problem 2.15}
+\section{Problem 2.20}
 
 \end{document}
