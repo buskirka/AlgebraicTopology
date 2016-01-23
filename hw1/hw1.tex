@@ -36,10 +36,34 @@ Let $X$ be a topological space and let $A \subseteq X$ be any subset.
 \item $\operatorname{Int} A$ and $\operatorname{Ext} A$ are open in $X$, while $\bar{A}$
     and $\partial A$ are closed in $X$.
 \item The following are equivalent:
-    \begin{enumerate}
+    \begin{enumerate}[(i)]
+    \item $A$ is open in $X$.
+    \item $A=\operatorname{Int} A$
+    \item $A$ contains none of its boundary points.
+    \item Every point of $A$ has a neighborhood contained in $A$.
+    \end{enumerate}
+\item The following are equivalent:
+    \begin{enumerate}[(i)]
+    \item $A$ is closed in $X$.
+    \item $A=\bar{A}$.
+    \item $A$ contains all of its boundary points.
+    \item Every point of $X\setminus A$ has a neighborhood 
+        contained in $X\setminus A$.
     \end{enumerate}
 \end{enumerate}
 \end{theorem}
+\begin{proof}
+(a, $\Rightarrow$) If $x \in \operatorname{Int} A$, which is defined as a 
+union of open subsets of $A$, then $x$ must have been contained in one of 
+these open sets, $N_x$, which is a neighborhood of $x$ contained in $A$.
+
+(a, $\Leftarrow$) Suppose $x$ has an open neighborhood $N_x$ contained in $A$. 
+Then $N_x$ is an element of the union defining $\operatorname{Int} A$, and 
+thus $ x \in \N_x \subseteq \operatorname{Int} A$.
+
+
+\end{proof}
+
 \section{Exercise 2.11}
 \section{Exercise 2.32}
 \section{Exercise 2.40*}
