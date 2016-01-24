@@ -53,15 +53,76 @@ Let $X$ be a topological space and let $A \subseteq X$ be any subset.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-(a, $\Rightarrow$) If $x \in \operatorname{Int} A$, which is defined as a 
+(a, $\Rightarrow$) 
+If $x \in \operatorname{Int} A$, which is defined as a 
 union of open subsets of $A$, then $x$ must have been contained in one of 
 these open sets, $N_x$, which is a neighborhood of $x$ contained in $A$.
 
-(a, $\Leftarrow$) Suppose $x$ has an open neighborhood $N_x$ contained in $A$. 
+(a, $\Leftarrow$) 
+Suppose $x$ has an open neighborhood $N_x$ contained in $A$. 
 Then $N_x$ is an element of the union defining $\operatorname{Int} A$, and 
-thus $ x \in \N_x \subseteq \operatorname{Int} A$.
+thus $ x \in N_x \subseteq \operatorname{Int} A$.
 
+(b, $\Rightarrow$)
+Suppose $x \in \operatorname{Ext} A$. Then $x \in X \setminus \bar{A}$. Thus
+there must exist some closed set $B \supseteq A$ such that $x \not\in B$.
+So $x \in B^C \subseteq A^C$, with $B^C$ the complement of a closed set, and thus
+open.
 
+(b, $\Leftarrow$)
+Suppose $x \in X$ has an open neighborhood $N_x$ such that $N_x \subseteq A^C$. 
+Since $N_x$ is open, $(N_x)^C$ is closed, and contains $A$. Thus it is part
+of the intersection defining $\bar{A}$, so
+$\bar{A} \subseteq (N_x)^C$. Thus $\bar{A}^C = X \setminus \bar{A} 
+=\operatorname{Ext} A \supseteq N_x$, which contains $x$. Thus
+$x \in \operatorname{Ext} A$.
+
+(c, $\Rightarrow$)
+Suppose $x \in \partial A$. Then $x$ is in neither the interior of $A$ nor
+its exterior. Then consider an arbitrary neighborhood of $x$, $N_x$. If 
+$N_x$ did not contain an element of $A^C$, $N_x$ would be a subset
+of the interior of $A$ (it would be part of the union in the interior) 
+and thus $x$ would be in the interior; contradiction, $N_x$ contains
+an element of $A^C$. Then suppose $N_x$ contains no element of $A$. Then 
+$N_x \subseteq A^C$; then $(A^C)^C = A \subseteq (N_x)^C$. So $(N_x)^C$
+is part of the intersection in the closure; that is, 
+$\bar{A} \subseteq (N_x)^C$. Thus $N_x \subseteq \bar{A}^C =
+\operatorname{Ext} A$. But this implies $x$ is in the exterior of $A$;
+contradiction. Thus $N_x$ contains both an element of $A$ and an element of
+$A^C$.
+
+(c, $\Leftarrow$)
+Consider any $x \in X$ with the property that every neighborhood of it contains
+an element of $A$ and an element of $A^C$. Then $x$ cannot be in the interior,
+since then it would be in some open set $N_x$ in the interior's union, which
+would also contain a point of $A^C$, which contradicts the requirement that
+$N_X \subseteq A$. It also cannot be in the exterior if it were in the exterior,
+then it would not be in the closure of $A$, which means there must exist some
+$B \subseteq X$ such that $x\not\in B$, $B \supseteq A$ and $B$ is closed.
+But then $x \in B^C$, which is open, and $B^C \subseteq A^C$. This $B$ cannot
+contain any element of $A$, and yet this is a neighborhood of $x$, which 
+contradicts our assumptions regarding $x$. Thus, if every neighborhood of
+$x$ contains elements of both $A$ and $A^C$, then $x$ must be a boundary point.
+
+(d, $\Rightarrow$)
+Suppose $x \in \bar{A}$. Either $x \in A$ or not. If $x \in A$, then every
+neighborhood of it must contain a point of $A$. If $x \not\in A$, then
+$x \in \partial A$ or $x \in \operatorname{Ext} A$. The latter would imply
+the existence of an open neighborhood $N_x$ of $x$ contained entirely in $A^C$,
+implying that (closed) $(N_x)^C$ entirely contained $A$, and hence it is 
+part of the intersection defining the closure; so $x \not\in (N_x)^C$ which
+contains $\bar{A}$, hence $x \not\in \bar{A}$. Contradiction. If, instead,
+$x \in \partial A$, (c) guarantees the point required.
+
+(d, $\Leftarrow$)
+
+(e)
+
+(f)
+
+(g)
+
+(h)
 \end{proof}
 
 \section{Exercise 2.11}
