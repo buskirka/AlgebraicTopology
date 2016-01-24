@@ -115,14 +115,77 @@ contains $\bar{A}$, hence $x \not\in \bar{A}$. Contradiction. If, instead,
 $x \in \partial A$, (c) guarantees the point required.
 
 (d, $\Leftarrow$)
+Suppose every neighborhood of some $x \in X$ contains a point of $A$. Then
+if $x \not\in \bar{A}$, we would have some closed set around $A$ which
+did not contain $x$. The complement of this would be an open neighborhood
+containing $x$, which must thus contain a point of $A$, contradicting
+the fact that it cannot include any point of $A$. Hence $x \in\bar{A}$.
 
 (e)
+Suppose $x \in \bar{A}$. Then either $x \in A$ or $x \not\in A$ but every
+neighborhood contains an element of $A$, which means it contains both elements
+of $A$ and $A^C$, hence by (c) $x \in \partial A$. Thus 
+$\bar{A} \subseteq A \cup \partial A$.
+
+Suppose $x \in A \cup \partial A$. If $x \in A$ then either every $N_x$ 
+containing $x$ contains an element of $A^C$, and thus $x \in \partial A$ (c),
+or not, which means there exists an $N_x$ containing no point of $A^C$, meaning
+$x \in \operatorname{Int} A$ (a). Thus 
+$A \cup \partial A \subseteq \operatorname{Int} A \cup \partial A$.
+
+Suppose $x \in \operatorname{Int} A \cup \partial A$. 
+$\operatorname{Int} A \subseteq A \subseteq \bar A$, and if $x \in \partial A$
+then each neighborhood contains a point of $A$ (c) which means it is also 
+in $\bar{A}$ (d). Hence $\operatorname{Int} A \cup \partial A \subseteq \bar{A}$.
+
+These three inclusions can be strung together to demonstrate equality.
 
 (f)
+The interior is a union of open sets and thus open.
+The exterior is a complement of a closed set $\bar{A}$ and thus is open.
+The closure is an intersection of closed sets and thus is closed.
+The boundary is the complement of the union of two open sets, which is open,
+and thus the boundary is closed.
 
-(g)
+(g, i to ii)
+Suppose $A$ is open in $X$. Then $A$ is one of the sets in the interior union and thus
+$A = \operatorname{Int} A$.
 
-(h)
+(g, ii to iii)
+Suppose $A = \operatorname{Int} A$. Then since $\partial A$ and $\operatorname{Int} A$
+are disjoint, $A$ contains none of its boundary points.
+
+(g, iii to iv)
+Suppose $A$ contains none of its boundary points. Then if $x \in A$, not all neighborhoods
+of $x$ contain a point of $A^C$. Any of these neighborhoods satisfies the fourth point.
+
+(g, iv to i)
+Suppose every point of $A$ has a neighborhood contained in $A$. Then the union of these
+neighborhoods is a subset of $A$---indeed, equal to $A$, since each point was in at least
+one of these neighborhoods---and this is a union of open sets and thus it is open, so 
+$A$ is open.
+
+(h, i to ii)
+Suppose $A$ is closed in $X$. Then $A$ is one of the sets in the closure intersection,
+and thus $A \subseteq \bar{A} \subseteq A$. $A=\bar{A}$.
+
+(h, ii to iii)
+Suppose $A = \bar{A}$. Then by (e) $A = \bar{A} = A \cup \partial A$ and thus $A$
+contains all its boundary points.
+
+(h, iii to iv) 
+If every neighborhood around $x \in A^C$ was not contained in $A^C$, then 
+$x$ would be in $\partial A$ by (c) which would contradict (h.iii). Hence
+if (h.iii) is true then every point in $A^C$ must have at least one neighborhood
+contained in $A^C$.
+
+(h, iv to i)
+Suppose every point $x \in A^C$ has a neighborhood $x \in N_x \subseteq A^C$. The 
+complements of these sets are all closed sets containing all of $A$ and not $x$; 
+intersecting all of these sets gives us a closed set which excludes every point
+not in $A$ in at least one set of the intersection, but includes every point of
+$A$. This set is thus $A$, and thus $A$ is a closed set (the intersection of 
+a collection of closed sets).
 \end{proof}
 
 \section{Exercise 2.11}
