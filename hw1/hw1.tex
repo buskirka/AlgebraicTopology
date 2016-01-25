@@ -189,7 +189,83 @@ a collection of closed sets).
 \end{proof}
 
 \section{Exercise 2.11}
+Handled by Preheim.
+%\begin{theorem}
+%$A$ is dense in $X$ iff every nonempty open subset of $X$ contains a point of $A$.
+%\end{theorem}
+%\begin{proof}
+%($\Rightarrow$) 
+%Suppose $A$ is dense in $X$, and consider an arbitrary nonempty open subset $N$ of $X$. Then 
+%$N^C$ is a closed set. If $N$ does not contain a point of $A$, then $N \subseteq A^C$, so
+%$A \subseteq N^C$, and thus $N^C$ is a part of the intersection defining the closure of $A$. 
+%Since $N$ contains some point, $N^C$ must lack some point of $X$, so 
+%\end{proof}
+
 \section{Exercise 2.32}
+\begin{theorem}
+\begin{enumerate}[(a)]
+\item Every homeomorphism is a local homeomorphism.
+\item Every local homeomorphism is continuous and open.
+\item Every bijective local homeomorphism is a homeomorphism.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(a) Suppose $f : X \to Y$ is a homeomorphism. Then $f$ is a local homeomorphism; 
+for each point the trivial restriction of $f$ to $X$ itself is $f$, which is a 
+homeomorphism.
+
+(b) Suppose $f : X \to Y$ is a local homeomorphism. 
+
+(b, open)
+If $A \in \tau_X$ then for each $x \in A$, there exists $U_x$ such that $f|_{U_x}$
+is a homeomorphism. $V_x = f|_{U_x}(A)$ is open, since open sets in open subspaces
+are open in the original space (they are the intersection of two open sets and 
+hence open) So $V_x = f|_{U_x}(A) = f(A \cap U_x) \subseteq f(A)$, and thus 
+$\bigcup_{x \in A} V_x \subseteq f(A)$. Yet also $f(x) \in V_x$ for each $x$, so
+$f(A) \subseteq \bigcup_{x\in A} V_x$. So $f(A)$ can be expressed as a union of
+open sets, $A$ is open, and thus $f$ is an open map.
+
+(b, continuous)
+Consider $B \in \tau_Y$. Then either $f(X) \cap B = \emptyset$ or not; if so, 
+$f^{-1}(B)=\emptyset$ which is open. Otherwise, for each $x \in f^{-1}(B)$, we
+know $[f|_{U_x}]^{-1}(B)$ is open in $U_x$. Since $U_x$ is an open subspace, 
+$K_x = [f|_{U_x}]^{-1} (B)$ is open in $X$ also. Then $K_x \subseteq f^{-1}(B)$ and
+each $y \in B$ has at least one $x \in f^{-1}(B)$ mapping to it, which must be in
+$K_x$. Hence $\bigcup_{x \in f^{-1}(B)} K_x = f^{-1} (B)$, and thus $f^{-1}(B)$
+can be expressed as a union of open sets, $f^{-1}(B)$ is open, and $f$ is a 
+continuous map.
+
+%If $f$ is not open, then for some open set $A$ it maps $x \in A$ to a boundary point 
+%of $f(A)$. Then, letting $f_x : U_x \to f(U_x)$ denote the restricted homeomorphism guaranteed by 
+%local homeomorphism, we have that $A \cap U_x$ is open, and thus $f_x(A \cap U_x)$ is an open
+%neighborhood of $f(x)$. But this is a subset of $f(A)$ and thus 
+
+%If $A$ is an open set, then we know for each $x \in A$, there exists open $U_x$
+%such that $f(U_x)$ is open in $Y$. Furthermore, $f|_{U_x}$ is a homeomorphism onto
+%$f(U_x)$ with the subspace topology. $A \cap U_x$ is open, so 
+%$f|_{U_x}(A \cap U_x)$ is open in $f(U_x)$. So there must be some open set $B_x$
+%in $Y$ 
+%such that $B_x \cap U_x = f|_{U_x}(A \cap U_x)$.
+
+%If $f$ is not an open map, 
+%then there exists some open set $A$ such that $f(A)$ is not open. So some point in 
+%$A$, call it $x$, is mapped to a boundary point of $f(A)$. Then the local 
+%homeomorphism guarantees the existence of $U_x$ around $x$ such that 
+%$f|_{U_x}$ is a homeomorphism.
+
+%then there exists some $B \subseteq Y$ such that 
+%$f^{-1}( \operatorname{Int} B ) \nsupseteq \operatorname{Int} f^{-1}(B)$.
+%That is, there is a point $x$ in 
+%$\operatorname{Int} f^{-1} (B)$ which is not in 
+%$f^{-1}( \operatorname{Int} B)$. Since $x$ is in the interior of the set, there 
+%exists a neighborhood $N_x$ such that $x \in N_x \subseteq f^{-1}(B)$.
+%The fact that $f$ is a local homeomorphism guarantees the existence of some 
+%$V_x$ such that $f|_{V_x}$ is a homeomorphism. 
+
+(c) Suppose $f : X \to Y$ is a bijective local homeomorphism.
+Then by the result of part (b) above and the product of Exercise 2.29 in the
+text, $f$ is a bijective continuous map which is open and thus a homeomorphism.
+\end{proof}
 \section{Exercise 2.40*}
 \begin{definition}[Topological basis, def.\ A]\label{topbasisA}
 A \textbf{basis} for a topological space $(X,\tau)$ is a collection $\beta \subseteq \tau$ 
