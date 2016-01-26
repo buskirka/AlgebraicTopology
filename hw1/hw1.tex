@@ -317,10 +317,132 @@ A-basis. All B-bases are also A-bases.
 Definitions \ref{topbasisA} and \ref{topbasisB} imply each other, and thus they are equivalent.
 \end{proof}
 
-\section{Problem 2.1d}
-\section{Problem 2.4}
-\section{Problem 2.14}
-\section{Problem 2.15}
-\section{Problem 2.20}
+\section{Problem 2-1d}
+Handled by Preheim.
+\section{Problem 2-4}
+Handled by Preheim.
+\section{Problem 2-14}
+\begin{lemma}
+Suppose $X$ is a first countable space, $A$ is any subset of $X$, and $x$ 
+is any point of $X$.
+\begin{enumerate}[(a)]
+\item $x \in \bar{A}$ iff $x$ is a limit of a sequence of points in $A$.
+\item $x \in \operatorname{Int} A$ iff every sequence in $X$ converging
+to $x$ is eventually in $A$.
+\item $A$ is closed in $X$ iff $A$ contains every limit of every convergent
+sequence of points in $A$.
+\item $A$ is open in $X$ iff every sequence in $X$ converging to a point of $A$ 
+is eventually in $A$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a, $\Rightarrow$)
+Suppose $x \in \bar{A}$. Then $x \in \partial A$ or $x \in \operatorname{Int} A$.
+If the latter, then $x \in A$ and thus the constant sequence of $x$'s converges
+to $x$. If $x \in \partial A$, then each neighborhood of $x$ contains a point of 
+$A$. If we let $U_n$ be a descending sequence of open sets in the countable
+neighborhood basis for $X$ at $x$, then picking $x_n \in U_n$ for each $n$ 
+gives a sequence converging to $x$.
+
+(a, $\Leftarrow$) Suppose $x$ is a limit of a sequence of points in $A$, 
+but $x \not\in \bar{A}$. Thus $x \in \operatorname{Ext} A$. Hence there
+exists a neighborhood of $x$ containing no point of $A$. But this contradicts
+the definition of the limit; hence if $x$ is a limit of a sequence
+of points in $A$, $x \in \bar{A}$.
+
+(b, $\Rightarrow$) Suppose $x \in \operatorname{Int} A$. Then if $x_n \to x$, 
+we know that some tail of $x_n$ is in $\operatorname{Int} A \subseteq A$.
+Hence every sequence converging to $x$ is is eventally in $A$.
+
+(b, $\Leftarrow$) Suppose every sequence in $X$ converging to $x$ is eventually
+in $A$, yet $x \not\in \operatorname{Int} A$. Then $x \in \operatorname{Ext} A$
+or $x \in \partial A$. If it were in the exterior of $A$, then the constant
+sequence $(x)$ would converge to $A$ and be entirely outside of $A$, contradicting
+our assumptions. If $x \in \partial A$, then every neighborhood of $x$ would contain
+a point of $A^C$; if we pick a sequence $(x_n)$ such that $x_n$ is in $B_n$ for some
+descending countable subset of the neighbhorhood basis, then some tail will eventually
+be contained in each neighborhood of $x$, and thus $x_n \to x$, yet this is never
+contained in $A$; this contradicts our assumption. If every sequence in $X$ converging
+to $x$ is eventually in $A$, then $x \in \operatorname{Int} A$.
+
+(c, $\Rightarrow$) Suppose $A$ is closed in $X$. Then $A = \bar{A}$. If $x$ is the limit
+of a sequence of points in $A$, then by (a) above $x \in \bar{A} = A$.
+
+(c, $\Leftarrow$) Suppose every limit point $x$ of $A$ is in $A$. Then by (a) 
+$x \in \bar{A}$. So $A = \bar{A}$.
+
+(d) Handled by Preheim.
+\end{proof}
+\section{Problem 2-15}
+\subsection{Part 2-15.a}
+\begin{theorem}
+Suppose $f : X \to Y$ is continuous, and $p_n\to p$ in $X$. Then
+$f(p_n) \to f(p)$ in $Y$.
+\end{theorem}
+\begin{proof}
+Suppose that $f(p) \in N$, some open neighborhood in $Y$. 
+Then $p \in f^{-1}(N)$, which is open in $X$. Since this is an open
+set in $X$, there exists some $K$ such that if $k > K$, 
+$p_k \in f^{-1}(N)$, and thus $f(p_k) \in N$. Hence for any open
+neighborhood of $f(p)$, some tail of $f(p_n)$ is contained in
+that neighborhood. Hence, $f(p_n) \to f(p)$.
+\end{proof}
+
+\subsection{Part 2-15.b}
+\begin{theorem}
+If $f : X \to Y$, $X$ first countable, and $p_n \to p$ implies 
+$f(p_n) \to f(p)$, then $f$ is continuous.
+\end{theorem}
+\begin{proof}
+Suppose $B \in \tau_Y$, and consider arbitrary $x \in f^{-1}(B)$. Then, working
+by Lemma 2.48.a, consider a sequence $x_n \to x$. Then $f(x_n) \to f(x)$, which 
+means that there exists some $K$ such that $k\ge K$ implies $f(x_k) \in B$, 
+which in turn implies $x_k \in f^{-1}(B)$. Hence every sequence converging to
+any arbitrary point of $f^{-1}(B)$ is eventually contained in that set. Thus,
+by Lemma 2.48.d, $f^{-1}(B)$ is open, and thus $f$ is continuous.
+\end{proof}
+\section{Problem 2-20}
+\begin{theorem}
+For a metric space, second countability, separability, and the Lindel\"of property
+are all equivalent.
+\end{theorem}
+\begin{proof}
+(Second countable to Lindel\"of)
+Suppose $X$ is a second countable metric space. Then theorem 2.50 says it is
+Lindel\"of. (This is true regardless of the
+metric.)
+
+(Separable to second countable)
+If $X$ is a separable metric space, then we can allow the set 
+$\{ B_\epsilon(a_k) : \epsilon \in \Q, k \in \N\}$, which is indexed by 
+countable sets and thus is countable, to be a basis for $X$. Then if 
+$U$ is an open subset of $X$, and $x \in U \subseteq X$, then by openness 
+in metric spaces $B_\delta ( x ) \subseteq U$; we can choose this $\delta$
+to be rational also, by picking a new $\delta$ rational in 
+$[0.9\delta, \delta]$. By denseness, then some 
+$a_k \in B_{\delta/3} ( x )$, which means that $B_{2\delta/3}(a_k)$ 
+is contained entirely in $B_{\delta}(x)$ and thus $U$ and also contains $x$. 
+Hence $x \in B_{2\delta/3}(a_k) \subseteq B_\delta(x) \subseteq U \subseteq X$.
+Hence the countable collection defined above is a basis for $X$.
+
+(Lindel\"of to separable)
+Suppose $A$ is a dense set in some metric space $X$, and consider the open
+covers generated by $1/n$ for $n\in\N$.
+The set $B_n=\{ B_{1/n}(a) : a \in A\}$ is an open cover of $X$ and thus must
+possess a countable subcover $C_n$ of open balls centered at $A_n \subseteq A$,
+again a countable set. Then $A'=A_1 \cup A_2 \cup A_3 \cup \cdots$ is a countable 
+union of countable sets and thus countable. Furthermore, for each $x \in X$,
+for each $A_n$ there exists $a_n$ such that $d(x,a_n) < 1/n$; thus this sequence
+$(a_n)$ converges to $x$, $x \in \bar{A'}$ and since $x$ was arbitrary
+$A'$ is a countable dense set in $X$.
+
+%(Separable to Lindel\"of)
+%Suppose $X$ is a separable metric space. Then if we have an open cover of $X$, 
+%we can construct a countable subcover from the countable dense subset implied 
+%by $X$
+%
+%(Lindel\"of to second countable)
+
+\end{proof}
 
 \end{document}
