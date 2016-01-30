@@ -1,0 +1,70 @@
+\documentclass{article}
+
+\title{Algebraic Topology Homework 2}
+\author{Adam Buskirk}
+
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{conjecture}[subsection]{Conjecture}
+\newtheorem{lemma}[subsection]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[subsection]{Definition}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Co}{\mathbb{C}}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\sq}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+% \newcommand{\p}[1]{\left(#1\right)}
+
+\begin{document}
+\maketitle
+
+\section{Local Euclidean definitions}
+\begin{quote}
+Show we can replace $V$ in the definition of local Euclidean with
+$B_1(0)$ or $R^n$.
+\end{quote}
+\begin{theorem}
+The following three definitions are equivalent:
+\begin{enumerate}[(A)]
+\item $M$ is \textbf{locally Euclidean of dimension $n$} if every point of $M$ has a 
+neighborhood of $M$ that is homeomorphic to an open subset of $\R^n$.
+\item $M$ is \textbf{locally Euclidean of dimension $n$} if every point of $M$ has a 
+neighborhood of $M$ that is homeomorphic to $B_1(0) \subseteq \R^n$.
+\item $M$ is \textbf{locally Euclidean of dimension $n$} if every point of $M$ has a 
+neighborhood of $M$ that is homeomorphic to $\R^n$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(A to B) Suppose $M$ satisfies definition (A), and consider an arbitrary point 
+$x \in M$. Then there exists $U$ such that $x \in U$ and 
+$\varphi : U \to V \subseteq \R^n$ is a homeomorphism. Since $V$ is open in $\R^n$,
+there exists an open ball $B_r(\varphi(x))$ in $V$ around the image of $x$. Since open
+sets in $\R^n$ are closed under affine linear transformations, applying the map
+$\phi : z \mapsto r^{-1} I_n (z-\varphi(x))$, which acts on the open ball $B_r(\varphi(x))$
+by first translating it to $B_r(0)$ and then scaling it by a factor of $r^{-1}$ to
+$B_1(0)$; hence $\phi$ is a homeomorphism from $B_r(\varphi(x))$ to $B_1(0)$. Then we know
+that there is a neighborhood $U'=\varphi^{-1}(B_r(\varphi(x))) \subseteq M$ which is 
+homeomorphic to $B_1(0)$ by the composition of homeomorphisms 
+$\phi \circ \sq{\varphi|_{U'}}$. Hence $M$ also satisfies definition (B).
+
+(B to C) Example 2.25 in the text demonstrates that $B_1(0) \subseteq \R^n$ is 
+homeomorphic to $\R^n$; let this map be called $\phi$. Then if $M$ satisfies
+definition (B), around any $x \in M$ there exists $U$ containing $x$, with
+$\varphi : U \to B_1(0)$. Composing these two maps gives us $\phi \circ \varphi$,
+a homeomorphism from that same $U$ around $x$ into $\R^n$. Thus (B) implies (C).
+
+(C to A) $\R^n$ is an open subset of $\R^n$, and thus the same $U$ and homeomorphism 
+$\varphi : U \to \R^n$ guaranteed by (C) may serve for the definition of (A) as well.
+\end{proof}
+
+\end{document}
