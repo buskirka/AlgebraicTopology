@@ -1,0 +1,84 @@
+\documentclass{article}
+
+\title{Algebraic Topology Exercises 3}
+\author{Adam Buskirk}
+
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{conjecture}[subsection]{Conjecture}
+\newtheorem{lemma}[subsection]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[subsection]{Definition}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Co}{\mathbb{C}}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\sq}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+% \newcommand{\p}[1]{\left(#1\right)}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+Show $\bar{B}_n$ is a manifold with boundary.
+\end{quote}
+\begin{theorem}
+$\bar{B}_n$ is a manifold with boundary.
+\end{theorem}
+\begin{proof}
+We can define a chart on $\bar{B}_n$ by defining, for each 
+$(s,k) \in \{ -1, 1 \} \times \{ 1 \cdots n \}$, the map 
+\[ 
+\psi_{s,k} : (x_1 , \cdots , x_n) 
+\mapsto s \cdot (x_1, \cdots, x_{k-1}, x_{k+1}, \cdots, x_n, x_k) 
+\] 
+This
+is a linear transformation of $\R^n$, and further it is an isometry,
+a symmetry in $\R^n$.
+In particular, for each 
+$C_{s,k} = \{ x \in \bar{B}_n : s \cdot x_k > 0\}$, we have
+$\psi_{s,k} (C_{s,k}) = C_{1,n}$, and $C_{s,k} \cong S_{1,n}$. 
+In turn, $C_{1,n} \cong \{ x : 0 < x_n \le 1\}$, since we have the 
+homeomorphism 
+\[
+\phi : (x_1, \cdots, x_n) 
+\mapsto 
+\frac{ |(x_1,\cdots,x_n)|}{x_n} \cdot (x_1, \cdots, x_n)
+\]
+which is composed of continuous functions, and thus is continuous. Furthermore,
+this is homeomorphic to the half-space $H^n=\{ x : x_n \ge 0 \}$ by the map 
+$\xi : (x_1,\cdots,x_n) \mapsto (x_1, \cdots, -\ln x_n)$. 
+Thus, $C_{s,k} \cong C_{1,n} \cong \{ x : 0 < x_n \le 1 \} \cong H^n$, and our
+atlas is
+\[ 
+\{(B_1(0), I_R)\} 
+\cup \set{ (C_{s,k},\xi \circ \phi \circ \psi_{s,k}) 
+: s \in \{1,-1\}\times\{1,\cdots,n\} } 
+\]
+Since every point in $\bar{B}_n$ is in one of these charts into $\R^n$ or $H^n$---%
+each interior point is
+in $B_1(0)$ and everything but $0$ is in at least one $C_{s,k}$---this is, indeed,
+an atlas for $\bar{B}_n$ and thus it is a manifold with boundary.
+\end{proof}
+
+\begin{quote}
+Is $S^1 \times \bar{B}_2$ a manifold with boundary?
+\end{quote}
+It would seem so. If $x \in S^1 \times \bar{B}_2$, then $x=(x_1, x_2)$
+for some $x_1 \in S^1$ and $x_2 \in \bar{B}_2$, around which there must exist 
+open sets $U_1\subseteq S^1$ and $U_2\subseteq\bar{B}_2$ which are homeomorphic 
+subsets of either $\R$ ($\R^2$ for $\bar{B}_2$) 
+or $[0,\infty)$ ($H^2$ for $\bar{B}_2$). Then by Proposition 3.33 the product of these 
+homeomorphism is a homeomorphism. Since $S^1$ is a manifold, $U_1$ must be 
+homeomorphic to a subset of $\R$, and thus the product homeomorphism must be 
+either a homeomorphism into a subset of $\R \times \R^2 \cong \R^3$ or 
+$\R \times H^2 \cong H^3$.
+\end{document}
