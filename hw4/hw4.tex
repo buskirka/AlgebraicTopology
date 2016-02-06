@@ -145,7 +145,21 @@ Let $H$ denote the connected component containing $e$. Then $H$ is a
 subgroup.
 \end{theorem}
 \begin{proof}
-
+Consider arbitrary $g, h \in H$, and consider $\Phi_h : H \to G$ defined
+by $\Phi_h ( k ) = kh^{-1}$. Then $\Phi_h$ is constructed from three 
+different operations. First, $h \to h^{-1}$ is continuous by the definition
+of a topological group. Also, the restriction of the product to $H \times H$
+is continuous. So the composition $\phi : (j,k) \in H^2 \mapsto j \cdot k^{-1}G$ 
+is continuous. So then $\Phi_h (k) = \phi(k,h)$ is continuous. Thus, since
+continuous maps preserve connectivity by Theorem 4.7 in the text, we know that
+$\Phi_h(H)$ is a connected set. Furthermore, 
+$\Phi_h(h) = h h^{-1} = e \in \Phi_h(H)$,
+so $\Phi_h(H) \subseteq H$; if not, $H$ would not be maximal, since 
+$\phi_h(H) \cup H$ would then be a larger connected set not disjoint from $H$, 
+and thus $H$ would not be considered a connected component of $G$. Since 
+$g \in H$, the domain of $\Phi_h$, then 
+$gh^{-1} = \Phi_h (g) \in \Phi_h (H) \subset H$, so $gh^{-1} \in H$. Thus,
+$H$ is a subgroup of $G$.
 \end{proof}
 
 \end{document}
