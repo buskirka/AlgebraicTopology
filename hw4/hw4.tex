@@ -106,17 +106,19 @@ Then $X / \sim$ is second countable, locally Euclidean, but not Hausdorff.
 \end{theorem}
 \begin{proof}
 $X$ is second countable, and thus $X / \sim$ must be. Any point of $X$ 
-permits open $U_x \cong B^n$. Thus, for any point in $X/ \sim$ except
-the two origins, we have an open neighborhood homeomorphic to $B^n$ 
-descended from the neighborhoods yielded by that point's preimages;
-either of these two will work. Either origin also carries its own open
-neighborhood down through the quotient map.
+permits open $U_x \cong B^n$. Thus, for any point $x'$ in $X/ \sim$ except
+the two origins, we have an open neighborhood $(x'/2,3x'/2)$ (or 
+$(3x'/2,x'/2)$) homeomorphic to its obvious image in $\R$. Similarly, 
+for $s$ an origin, $(-1,0) \cup \{s\} \cup (0,1)$ is homeomorphic
+to $(-1,1) \in \tau_\R$.
+Hence each point in $X/\sim$ has a neighborhood homeomorphic to 
 
 However, $X / \sim$ is not Hausdorff, since we cannot find disjoint 
 open balls around $[(0,0)]$ and $[(0,1)]$. The preimage of a neighborhood
 of $[(0,0)]$ must contain some open interval $(a,b) \times \{0\}$,
+$a < 0 < b$,
 and also the preimage of a neighborhood of $[(0,1)]$ must contain
-some $(c,d) \times \{1\}$. However, consider the points 
+some $(c,d) \times \{1\}$, $c < 0 < d$. However, consider the points 
 $(\min(b,d)/2,0)$ and $(\min(b,d)/2,1)$; since neither $b$ nor $d$ can
 be $0$, these must map to the same point under the quotient map. 
 Consequently, the neighborhoods around $[(0,0)]$ and $[(0,1)]$ are
@@ -125,6 +127,7 @@ open neighborhoods for these points in $X / \sim$ cannot be found.
 Consequently, $X / \sim$ is not Hausdorff.
 \end{proof}
 \section{Problem 4}
+
 \section{Problem 5}
 \begin{theorem}
 Manifolds have countably many connected components.
