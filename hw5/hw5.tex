@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\title{Algebraic Topology Homework 5}
+\author{Adam Buskirk}
+
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{conjecture}[subsection]{Conjecture}
+\newtheorem{lemma}[subsection]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[subsection]{Definition}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Co}{\mathbb{C}}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\sq}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+% \newcommand{\p}[1]{\left(#1\right)}
+
+\begin{document}
+\maketitle
+
+\section{$n$-manifolds}
+\begin{theorem}
+An $n$-manifold has a countable basis of precompact coordinate balls.
+\end{theorem}
+\begin{proof}
+Suppose $X$ is an $n$-manifold. Since $X$ is a topological manifold, 
+$X$ is locally compact (Proposition 4.64). By Proposition 4.63, each
+point of $X$ has a precompact neighborhood. Since manifolds are
+second-countable, $X$ has a countable basis.
+\end{proof}
+
+\section{Compactness implies paracompactness}
+\begin{theorem}
+Compactness implies paracompactness.
+\end{theorem}
+\begin{proof}
+Suppose a space $X$ is compact. Then for any cover $\mathcal{B}
+=\set{B_i, i\in I}$ over $X$,
+then by compactness we have a finite subcover 
+$\mathcal{B}'=\set{B_i, I\in J} \subseteq \mathcal{B}$. Since each 
+$B_i \in \mathcal{B}'$ is an open subset of $B_i \in \mathcal{B}$, 
+$\mathcal{B}'$ is an open refinement of $\mathcal{B}$. Furthermore, since
+$\mathcal{B}'$ is finite, it must be locally finite. Thus
+every open cover of $X$ admits a locally finite open refinement, so $X$
+is paracompact.
+\end{proof}
+
+\end{document}
