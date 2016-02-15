@@ -105,16 +105,66 @@ $x=y \neq 0$. Therefore, the classes $[(0,0)]$ and $[(0,1)]$ are distinct.
 Then $X / \sim$ is second countable, locally Euclidean, but not Hausdorff.
 \end{theorem}
 \begin{proof}
-$X$ is second countable, and thus $X / \sim$ must be. Any point of $X$ 
-permits open $U_x \cong B^n$. Thus, for any point $x'$ in $X/ \sim$ except
-the two origins, we have an open neighborhood $(x'/2,3x'/2)$ (or 
-$(3x'/2,x'/2)$) homeomorphic to its obvious image in $\R$. Similarly, 
-for $s$ an origin, $(-1,0) \cup \{s\} \cup (0,1)$ is homeomorphic
-to $(-1,1) \in \tau_\R$.
-Hence each point in $X/\sim$ has a neighborhood homeomorphic to 
+(Locally Euclidean) 
+% Let $f$ be the quotient map associated with $\sim$. Observe first that 
+% $\pi_1$ agrees with $f$ on the fibers of $f$; if $f(x_1,x_2) = f(y_1,y_2)$,
+% then we know $x_1=y_1$ and if those are zero, $x_2=y_2$. The first equation
+% gives $\pi_1(x_1,x_2) = x_1 = y_1 = \pi_1(y_1,y_2)$. Thus we may pass 
+% $\pi_1$ through the quotient to obtain a continuous map $\phi$.
+% {\begin{center}
+% \begin{tikzpicture}[every node/.style={midway},->,>=stealth]
+%         \matrix (m) [matrix of math nodes, column sep={5em}, row sep={5em}]
+%         {
+%                 X & \\
+%                 X /\sim & \R
+%         \\};
+%         \draw[->] (m-1-1) -- (m-2-2) node[above right] {$\pi_1$} ;
+%         \draw[->] (m-1-1) -- (m-2-1) node[left] {$f$};
+%         \draw[->] (m-2-1) -- (m-2-2) node[below] {$\phi$};
+% \end{tikzpicture}
+% \end{center}}
+If $x \in X / \sim$, then $x_1 \in (a,b) \subseteq \R$. If
+not both $x_1=0$ and $x_2=1$, 
+then we assume that $0 \not\in(a,b)$; if so, then
+$x\in(0,b)$ or $x\in(a,0)$ and proceed with that open neighborhood. 
+Then $(a,b) \cong \{ [(x,0)] : a < x < b \}$ by the inclusion map, 
+since $A \subseteq (a,b)$ is open implies $A \times \{0\}$ and
+$A \times \{1\}$ are open in $X$, hence 
+$\{[(x,0)] : x \in A \}$ is open since its preimage under $f$ is 
+$A \times \{0,1\}$, the union of two open sets. Thus the image
+of an arbitrary open set under 
+$i : (a,b) \to \{[(x,0)] : a < x < b\}$ is open; so this inclusion
+map is open. Furthermore, if $B \subseteq \{[(x,0)] : a < x < b\}$ 
+is open, then $B$'s preimage is the set of $x \in (a,b)$
+indexing $B$, which will be open. Hence $i$ is continuous.
+It is also bijective (injective since 
+each $p \in (a,b)$ is mapped
+to the unique element $[(p,0)]$ in the open subset of $X / \sim$, and
+since each element of the open image is indexed by exactly one element
+of $(a,b)$, the mapping is surjective also). Consequently, $i$
+is a bijective continuous open map, and thus $i$ is a homeomorphism
+between $(a,b)$ a subset of $\R$ and an open neighborhood of $x$.
 
+An open neighborhood around $[(0,1)]$ (the only point not yet
+accounted for) homeomorphic to an open 
+neighborhood of $\R$ is obtained by applying the homeomorphism
+\[
+P(x,y) = (x,1-y)
+\]
+which takes $(0,1)$ to $(0,0)$, which has an open neighborhood
+homeomorphic to an open neighborhood of $\R$, which can be pulled
+back through $P^{-1}$ to obtain an open neighborhood of $(0,1)$
+homeomorphic to an open neighborhood of $\R$.
+
+(Second countable) 
+$M$ is a locally Euclidean quotient space of a 
+second countable space $\R \times \{0,1\}$ ($X = \R \sqcup \R$ and 
+proposition 3.42.e), and thus is also 
+second countable by Proposition 3.56.
+
+(Not Hausdorff) 
 However, $X / \sim$ is not Hausdorff, since we cannot find disjoint 
-open balls around $[(0,0)]$ and $[(0,1)]$. The preimage of a neighborhood
+open neighborhoods around $[(0,0)]$ and $[(0,1)]$. The preimage of a neighborhood
 of $[(0,0)]$ must contain some open interval $(a,b) \times \{0\}$,
 $a < 0 < b$,
 and also the preimage of a neighborhood of $[(0,1)]$ must contain
@@ -126,7 +176,42 @@ not disjoint; but they were chosen arbitrarily, and thus disjoint
 open neighborhoods for these points in $X / \sim$ cannot be found.
 Consequently, $X / \sim$ is not Hausdorff.
 \end{proof}
+
 \section{Problem 4}
+\subsection{Example 2}
+(Locally connected)
+Observe that we cannot find any two disjoint nonempty sets $A,B$ in $\R_c$;
+if we picked any two, then their intersection would exclude $A^C \cup B^C$,
+which is also countable, and hence $A \cap B$ would be uncountable and thus
+nonempty.
+Hence every open subset of $\R_c$ is connected, and obviously the entire topology
+of $\R_c$
+is a basis for the space. Furthermore, we can find a 
+basis of connected open sets for $[0,1]$. Hence the box basis obtained on 
+$\R_c \times [0,1]$ by these is a basis of connected open subsets (Prop 3.31.d), 
+and thus each of these sets in $\R_c \times [0,1] / \sim$ is still connected 
+(Thm 4.7). The image of this basis is then a basis for $\R_c\times[0,1]/\sim$
+and thus this is a locally connected space.
+
+(Path connected)
+
+(Connected) 
+Implied by path connected.
+
+(Not locally path-connected)
+Notice that the only path-connected subsets of $\R_c$ are $\R_c$ itself and,
+trivially, the empty set. Otherwise, some $p$ must be omitted, which prevents
+a path in the set connecting $a$ and $b$ for any $a<p<b$ (some must exist, or
+the set would not be cocountable). Thus if we suggested $\mathcal{B}$ was a 
+basis for the set, then it must provide a basis element for 
+$\p{\R_c-\set{0}} \times [0,0.5)$ which is homeomorphic to its image in the
+quotient space (since it is bijective on this domain. Then if $U$ is a basis
+element associated with the set above, and $a,b \in U$ are selected such that
+$a_1 < 0 < b_1$, then if $f : I \to U$ is designated such that $f(0)=a$,
+$f(1)=b$, then at some point $\pi_1 \circ f (x) = 0$, which would imply $U$
+contained a point $f(x)$ outside of $\p{\R_c-\set{0}} \times [0,0.5)$, 
+a contradiction. Hence no basis of path-connected sets may be found for 
+the space, and thus it is not locally path-connected. 
 
 \section{Problem 5}
 \begin{theorem}
