@@ -65,7 +65,8 @@ For each $B$, there exists an open neighborhood $B'$ and homeomorphism
 $\varphi : B' \to B_{r'}(x) \subseteq \R^n$, for which there exists
 $r$, $0 < r < r'$ such that $\varphi(B) = B_r(x)$ and 
 $\varphi(\bar{B}) = \overline{B_r(x)}$. Since homeomorphic images of
-compact sets are compact, $\mathcal{B}$ is compact. Since the closure
+compact sets are compact, $\varphi^{-1}(B_r(x))=\bar{B}$ is compact. 
+Since the closure
 of $B$ is compact, $B$ is precompact. Consequently $\mathcal{B}$ is
 a countable basis of precompact coordinate balls.
 \end{proof}
@@ -77,9 +78,9 @@ Compactness implies paracompactness.
 \begin{proof}
 Suppose a space $X$ is compact. Then for any cover $\mathcal{B}
 =\set{B_i, i\in I}$ over $X$,
-then by compactness we have a finite subcover 
-$\mathcal{B}'=\set{B_i, i\in J} \subseteq \mathcal{B}$. Since each 
-$B_i \in \mathcal{B}'$ is an open subset of $B_i \in \mathcal{B}$, 
+by compactness we have a finite subcover 
+$\mathcal{B}'=\set{B_i, i\in J\subseteq I} \subseteq \mathcal{B}$. Since each 
+$B_i \in \mathcal{B}'$ is (trivially) an open subset of $B_i \in \mathcal{B}$, 
 $\mathcal{B}'$ is an open refinement of $\mathcal{B}$. Furthermore, since
 $\mathcal{B}'$ is finite, it must be locally finite (each open neighborhood
 can only intersect, at most, every element of $\mathcal{B}'$, which is finite). 
