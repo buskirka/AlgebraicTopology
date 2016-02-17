@@ -28,14 +28,39 @@
 \maketitle
 
 \section{$n$-manifolds}
+\begin{lemma}\label{lemma1}
+Every manifold has a countable basis of coordinate balls.
+\end{lemma}
+\begin{proof}
+Suppose $X$ is a manifold, and consider an arbitrary open
+$U \subseteq X$. Since $X$ is a manifold, it is second countable
+and thus has a countable 
+basis $\mathcal{B}$, and for some $B \in \mathcal{B}$,
+$B \subseteq U$. For any $p \in B \subseteq U$ (we assume we pick this
+consistently for each $B$; i.e. we have a choice function on $\mathcal{B}$) 
+we also have a 
+coordinate chart $(C_B,\varphi_B)$, $p \in C_B$, $C_B$ homeomorphic by
+$\varphi_B$ to an open neighborhood of $\R^n$. Since $\varphi_B$ is 
+a homeomorphism and $B$ is open, $\varphi(C_B \cap B)$ is open in
+$\R^n$, and further $\varphi_B(p) \in \varphi_B(C_B \cap B)$. Since 
+$\varphi_B(p)$ is an element in an open set, it must permit some open
+ball around it, 
+$V_B=B(\varphi_B(p); \epsilon) \subseteq \varphi_B(C_B \cap B)$. Then
+$\varphi_B^{-1}(V_B) \subseteq C_B \cap B$, and 
+$(\varphi_B^{-1}(V_B),\varphi_B|_{\varphi^{-1}(V_B)})$ is a coordinate 
+ball chart, and at least one of these fits within our arbitrary $U$.
+Consequently the collection
+of all such coordinate balls, 
+\[ \set{ (\varphi^{-1}(V_B),\varphi_B|_{\varphi^{-1}(V_B)}) : B \in \mathcal{B}}\]
+is a countable basis of coordinate balls.
+\end{proof}
+
 \begin{theorem}
 An $n$-manifold has a countable basis of precompact coordinate balls.
 \end{theorem}
 \begin{proof}
-Suppose $X$ is an $n$-manifold. Since $X$ is a topological manifold, 
-$X$ is locally compact (Proposition 4.64). By Proposition 4.63, each
-point of $X$ has a precompact neighborhood. Since manifolds are
-second-countable, $X$ has a countable basis.
+Suppose $X$ is a manifold. Then by Lemma \ref{lemma1}, 
+$X$ permits a countable basis of coordinate balls.
 \end{proof}
 
 \section{Compactness implies paracompactness}
