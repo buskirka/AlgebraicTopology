@@ -78,11 +78,14 @@ Compactness implies paracompactness.
 Suppose a space $X$ is compact. Then for any cover $\mathcal{B}
 =\set{B_i, i\in I}$ over $X$,
 then by compactness we have a finite subcover 
-$\mathcal{B}'=\set{B_i, I\in J} \subseteq \mathcal{B}$. Since each 
+$\mathcal{B}'=\set{B_i, i\in J} \subseteq \mathcal{B}$. Since each 
 $B_i \in \mathcal{B}'$ is an open subset of $B_i \in \mathcal{B}$, 
 $\mathcal{B}'$ is an open refinement of $\mathcal{B}$. Furthermore, since
-$\mathcal{B}'$ is finite, it must be locally finite. Thus
-every open cover of $X$ admits a locally finite open refinement, so $X$
+$\mathcal{B}'$ is finite, it must be locally finite (each open neighborhood
+can only intersect, at most, every element of $\mathcal{B}'$, which is finite). 
+Thus
+every open cover $\mathcal{B}$ of $X$ admits a locally finite open refinement
+$\mathcal{B}'$, so $X$
 is paracompact.
 \end{proof}
 
