@@ -1,0 +1,74 @@
+\documentclass{article}
+
+\title{Algebraic Topology HW6}
+\author{Adam Buskirk}
+
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{conjecture}[subsection]{Conjecture}
+\newtheorem{lemma}[subsection]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[subsection]{Definition}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Co}{\mathbb{C}}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\sq}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+% \newcommand{\p}[1]{\left(#1\right)}
+
+\begin{document}
+\maketitle
+
+Problems 4.18, 4.19, 4.33.
+
+``Smooth Bump Function'':
+
+Given $A \subseteq U \subseteq \R$, $A$ closed, $U$ open.
+
+(S) Show $\exists f : \R \to \R$ such that 
+\begin{enumerate}
+\item $f(A)=\{1\}$
+\item $\operatorname{supp} f \subseteq U$
+\item $f \in C^\infty (\R)$
+\end{enumerate}
+
+(A) Replace (3) with $f$ analytic on $\R$. Can we construct 
+such a bump function?
+
+\section{Problem 4.18}
+Let $M_1$ and $M_2$ be $n$-manifolds. For $i=1,2$, let 
+$B_i \subseteq M_i$ be regular coordinate balls, and let
+$M_i' = M_i \setminus B_i$. Choose a homeomorphism 
+$f : \partial M_2' \to \partial M_1'$. Let 
+$M_1 \# M_2$ be the adjunction space of $M_1' \cup_f M_2'$.
+\subsection{Part 4.18.a}
+\begin{theorem}
+$M_1 \# M_2$ is an $n$-manifold (without boundary).
+\end{theorem}
+\begin{proof}
+This follows from Theorem 3.79 in the text, since $M_1 \# M_2$ is an
+adjunction space of two manifolds with boundary, $M_1'$ and $M_2'$ with
+a homeomorphism between their boundaries.
+\end{proof}
+\subsection{Part 4.18.b}
+\begin{theorem}
+
+\end{theorem}
+\subsection{Part 4.18.c}
+\begin{theorem}
+\end{theorem}
+\section{Problem 4.19}
+\section{Problem 4.33}
+\section{Smooth Bump Function (S)}
+\section{Smooth Bump Function (A)}
+
+\end{document}
