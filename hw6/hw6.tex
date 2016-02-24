@@ -55,18 +55,73 @@ $M_1 \# M_2$ be the adjunction space of $M_1' \cup_f M_2'$.
 $M_1 \# M_2$ is an $n$-manifold (without boundary).
 \end{theorem}
 \begin{proof}
-This follows from Theorem 3.79 in the text, since $M_1 \# M_2$ is an
+This follows quite directly from Theorem 3.79 in the text, since $M_1 \# M_2$ is an
 adjunction space of two manifolds with boundary, $M_1'$ and $M_2'$ with
 a homeomorphism between their boundaries.
 \end{proof}
 \subsection{Part 4.18.b}
 \begin{theorem}
-
+If $M_1$ and $M_2$ are connected and $n>1$, then $M_1 \# M_2$ is connected.
 \end{theorem}
+\begin{proof} (Using path connectedness)
+First we show that $M_1'$ and $M_2'$ are path-connected. Without loss of generality,
+we consider $M_1$. Then $M_1'=M_1 \setminus B_1$ is a manifold with boundary 
+$\partial M_1' \cong S^{n-1}$. Since $M_1$ is a connected manifold, it is path connected,
+so for any two points $x,y \in M_1' \subseteq M_1$ there is a path $f : [0,1] \to M_1$ 
+in $M_1$ between them. Furthermore, $S^{n-1}$ is path-connected since $n>1$.
+Then since $f^{-1}(\partial M_1')$ is a preimage of a closed set, it contains its
+infinum $a$ and its supremum $b$. Then since $B_1 \cong S^{n-1}$ is path 
+connected, there exists a path $g : [0,1] \to \partial M_1'$ connecting these two.
+These two paths can be mashed into a single new path connecting $x$ and $y$,
+\[
+h(t) = \left\{ \begin{array}{cl}
+f(t) & t \in [0,1] \setminus (a,b) \\
+g\p{\frac{t-a}{b-a}} & t \in (a,b) 
+\end{array} \right.
+\]
+This essentially takes the path $f$, but then takes a detour around \textit{all}
+of the set $B_1$ through the boundary of $M_1'$. Thus, any two points in $M_1'$
+have a path $h(t)$ as above between them, and thus $M_1'$ (and $M_2'$ similarly)
+are path-connected. Similarly, their images under the quotient are path-connected, 
+and these share a point (under the boundary), and thus their union, which is
+$M_1 \# M_2$, is path connected by Proposition 4.13.b. Since $M_1 \# M_2$ is
+path connected, and all manifolds are locally path connected, by Proposition 4.26.e, 
+$M_1 \# M_2$ is connected.
+\end{proof}
 \subsection{Part 4.18.c}
 \begin{theorem}
+If $M_1$ and $M_2$ are compact, then $M_1 \# M_2$ is compact.
 \end{theorem}
+\begin{proof}
+$M_1'$ and $M_2'$ are the complements of open sets of $M_1$ and $M_2$, and thus
+are closed, and since $M_1$ and $M_2$ are compact, $M_1'$ and $M_2'$ are compact
+by Proposition 4.36.a. Thus, $M_1' \sqcup M_2'$ is compact; any open cover $\beta$ 
+of $M_1' \sqcup M_2'$ must have finite subcovers of $M_1'$ and $M_2'$, denoted
+$\beta_1$ and $\beta_2$ respectively, and then $\beta_1 \cup \beta_2$ is a finite
+subcover of $M_1' \sqcup M_2'$. $M_1 \# M_2$ is a quotient space of this disjoint
+union, and thus by Proposition 4.36.e, $M_1 \# M_2$ is compact.
+\end{proof}
+
 \section{Problem 4.19}
+\begin{theorem}
+Let $M_1 \# M_2$ be a connected sum of $n$-manifolds $M_1$ and $M_2$. Then
+there are open subsets $U_1, U_2 \subseteq M_1 \# M_2$ and points $p_i \in 
+M_i$ such that 
+\begin{enumerate}
+\item $U_i \cong M_i \setminus \{p_i\}$
+\item $U_1 \cap U_2 \cong \R^n \setminus \{0\}$, and
+\item $U_1 \cup U_2 = M_1 \# M_2$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Recall that $M_1$ and $M_2$ will be joined along a \textit{regular}
+coordinate ball. Thus, in $M_1$ we have an open neighborhood $B_1'$ homeomorphic 
+to $\R^n$ containing this coordinate ball $B_1$ which is mapped to $B^n$ by this 
+homeomorphism $f_1$. Similarly, in $M_2$ we have $B_1' \cong_{f_2} \R^n$ such 
+that $f_2(B_2) = B^n$. By deleting $f_2^{-1}(\{0\})$ from $B_2$, we can invert the 
+space along its boundary using the automorphism on $\R^n \setminus \{0\}$ defined
+by $x \mapsto x/\norm{x}^2$. 
+\end{proof}
 \section{Problem 4.33}
 \section{Smooth Bump Function (S)}
 \section{Smooth Bump Function (A)}
