@@ -1,17 +1,19 @@
 \documentclass{article}
 
-\title{TITLE}
+\title{Algebraic Topology Final}
 \author{Adam Buskirk}
 
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage{tikz}
+\usepackage{enumerate}
 \usepackage[margin=1in]{geometry}
 
-\newtheorem{theorem}[subsection]{Theorem}
-\newtheorem{conjecture}[subsection]{Conjecture}
-\newtheorem{lemma}[subsection]{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{definition}
-\newtheorem{definition}[subsection]{Definition}
+\newtheorem{definition}[theorem]{Definition}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
@@ -26,7 +28,124 @@
 % \newcommand{\p}[1]{\left(#1\right)}
 
 \begin{document}
-\maketitle
+\null\hfill\parbox{40mm}{Algebraic Topology Final\par Adam Buskirk\par\today}
 
+\section*{Theorem 5.20}
+Almost entirely copied from the book, with slight reformatting and attempts at improving 
+the clarity of the proof.
+\renewcommand{\thetheorem}{5.20}
+\begin{theorem}
+Suppose $X_0 \subseteq X_1 \subseteq \cdots \subseteq X_{n-1} \subseteq X_n \subseteq \cdots$
+is a sequence of topological spaces satisfying the conditions
+\begin{enumerate}
+\item $X_0$ is a nonempty discrete space
+\item For each $n \ge 1$, $X_n$ is obtained from $X_{n-1}$ by attaching
+a (possibly empty) collection of $n$-cells.
+\end{enumerate}
+Then $X=\bigcup_n X_n$ has a unique topology coherent with the family $\{X_n\}$, and a unique
+cell decomposition making it into a CW complex whose $n$-skeleton is $X_n$ for each $n$.
+\end{theorem}
+\begin{proof}
+\textbf{(Defining $X$'s topology)}
+We give $X$ a topology by the criteria that $B \subseteq X$ is closed if and only if
+$B \cap X_n$ is closed for each $n$. ``It is immediate that this is a topology, and it is
+obviously the unique topology coherent with $\{X_n\}$''; if $B$ is closed in $X$, then
+by definition $B \cap X_n$ is closed in $X_n$, and vice versa.%
+\footnote{The text makes the argument
+that if $B \subseteq X_n$ is closed, then Proposition 3.77 implies $X_{n-1}$ is a closed
+subspace of $X_n$. Thus $B \cap X_{n-1}$ is also closed in $X_{n-1}$. 
+Similarly, $B \cap X_{n+1} = B \cap X_n$ is closed in $X_{n+1}$. Thus $B\cap X_n$ would
+be closed in each $X_n$ and thus $B$ would be closed in $X$. But this seems to assume that
+any closed subset of $B$ must be entirely contained in some $X_n$, which does not seem to
+follow. In particular, if $B$ contains exactly one point in $X_n \setminus X_{n-1}$ for 
+each $n$ (when this is nonempty, e.g. $S^\infty$), 
+then it would be closed in the topology given yet would not be a subset of 
+any $X_n$.}
 
+\textbf{(Obtaining $X$'s cell decomposition)}
+To obtain a cell decomposition for $X$, we first let the $0$-cells be the points in
+$X_0$. Then for each $n \ge 1$, we define a quotient map realizing $X_n$ as an adjunction
+space 
+\[
+q_n : X_{n-1} \amalg \p{ \coprod_{\alpha \in A_n} D_\alpha^n} \to X_n
+\]
+Then by Proposition 3.77, we know $X_n \setminus X_{n-1}$ is an open subset of $X_n$
+homeomorphic to $\coprod_{\alpha} \operatorname{Int} D_\alpha^n$ which is a disjoint
+union of open $n$-cells, so we can define the $n$-cells of $X$ to be the components
+$\{ e_\alpha^n \}$
+of $X_n \setminus X_{n-1}$. $X$ can thus be expressed as the disjoint union of all of
+its cells.
+
+For each $n$-cell $e_\beta^n$ we define a characteristic map by composition to be
+\[
+\Phi_\beta^n 
+: D_\beta^n 
+\hookrightarrow X_n-1 \amalg \p{ \coprod_{\alpha\in A_n} D_\alpha^n }
+\overset{q_n}{\to} X_n
+\hookrightarrow X
+\]
+``Clearly $\Phi_\beta^n$ maps $\partial D_\beta^n$ into $X_{n-1}$, and its restriction to 
+$\operatorname{Int} D_\beta^n$ is a bijective continuous map onto $e_\beta^n$,
+so we need only show that this restriction is a homeomorphism onto its image.
+This follows because $\Phi_\beta^n|_{\operatorname{Int} D_\beta^n}$ is equal to
+the inclusion of $\operatorname{Int} D_\beta^n$ into the disjoint union, followed by the 
+restriction of $q_n$ to the saturated open subset $\operatorname{Int} D_\beta^n$,
+which is a bijective quotient map onto $e_\beta^n$. This proves that $X$ has a cell 
+decomposition for which $X_n$ is the $n$-skeleton for each $n$. Because the $n$-cells
+of any such decomposition are the components of $X_n \setminus X_{n-1}$, this is the unique
+such cell decomposition.''
+
+\textbf{($X$ is Hausdorff)}
+To show that $X$ is Hausdorff, we show that for arbitrary $p \in X$, 
+there exists a continuous function $f : X \to [0,1]$
+such that $f^{-1}(\{0\}) = \{p\}$ (using Exercise 2.35). Let $e_{\alpha_0}^m$ be the unique
+cell containing $p$ of dimension $m$. We start by defining $f_m : X_m \to [0,1]$
+as follows: if $m=0$, let $f_m(p)=0$ and $f_m(x)=1$ for $x\neq p$. Otherwise, let
+$\tilde{p} = (\Phi_{\alpha_0}^m)^{-1}(p) \in \operatorname{Int} D_{\alpha_0}^m$ be
+the preimage of $p$ in its closed cell $D_{\alpha_0}^m$. On $D_{\alpha_0}^m$, we
+may define a continuous function $F : D_{\alpha_0}^m \to [0,1]$ which is equal to 
+$1$ on $\partial D_{\alpha_0}^m$ and $0$ at exactly $\tilde{p}$ (using the result of
+Problem 5-2(a)). We then extend $F$ to a function
+\[
+\tilde{f}_m : X_{m-1} \amalg \p{\coprod_{\alpha} D_\alpha^m} \to \R
+\]
+by letting $\tilde{f}_m$ be $F$ on $D_{\alpha_0}^m$ and $1$ everywhere else. $\tilde{f}_m$
+is ``continuous by the characteristic property of the disjoint union, and descends to the
+quotient to yield a continuous function $f_m : X_m \to [0,1]$ whose zero set is $\{p\}$.''
+
+We now extend $f_m$ beyond $X_m$ using induction. If we have a continuous function
+$f_{n-1} : X_{n-1} \to [0,1]$ with zero set exactly $\{p\}$, then we construct
+$\tilde{f}_n$ to agree with $f_{n-1}$. We observe that we can define a function 
+$F_\alpha^n : D_\alpha^n \to [0,1]$ which extends 
+$f_{n-1} \circ \Phi_\alpha^n|_{\partial D_\alpha^n} : \partial D_\alpha^n \to [0,1]$.
+We then define 
+\[
+\tilde{f}_n : X_{n-1} \amalg \p{\coprod_\alpha D_\alpha^n} \to \R
+\]
+by letting $\tilde{f}_n = f_{n-1}$ on $X_{n-1}$ (as we would expect from an extension)
+and $\tilde{f}_n = F^n_\alpha on D_\alpha^n$. Again, $\tilde{f}_n$ is continuous and
+descends through the quotient to yield $f_n : X_n \to [0,1]$ whose zero set is exactly
+$\{p\}$.
+
+By letting $f(x) = f_n(x)$ iff $x \in X_n$, we obtain a continuous function 
+(by Proposition 5.2) from $X$ to $[0,1]$ with zero set exactly $\{p\}$. This
+is well defined by construction, since $f_n|_{X_{n-1}} = f_{n-1}$. Thus,
+$X$ is a Hausdorff space.
+\end{proof}
+
+\section*{Supporting results}
+\renewcommand{\thetheorem}{3.77}
+\begin{proposition}
+Let $X \cup_f Y$ be an adjunction space, and let $q : X \sqcup Y \to X \cup_f Y$ be the
+associated quotient map.
+\begin{enumerate}[(a)]
+\item The restriction of $q$ to $X$ is a topological embedding, whose image set $q(X)$ is 
+a closed subspace of $X \cup_f Y$.
+\item The restriction of $q$ to $Y \setminus A$ is a topological embedding, whose image set
+$q(Y \setminus A)$ is an open subspace of $X \cup_f Y$.
+\item $X \cup_f Y$ is the disjoint union of $q(X)$ and $q(Y \setminus A)$.
+\end{enumerate}
+\end{proposition}
+(The text does not specify what $A$ actually is. I assume it is the points which get 
+``adjuncted'', since that would make the most sense considering (b) and (c).)
 \end{document}
