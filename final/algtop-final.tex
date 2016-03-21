@@ -6,9 +6,11 @@
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage{tikz}
 \usepackage{enumerate}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1.5in]{geometry}
 
 \newtheorem{theorem}{Theorem}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{exercise}[theorem]{Exercise}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -117,23 +119,66 @@ We now extend $f_m$ beyond $X_m$ using induction. If we have a continuous functi
 $f_{n-1} : X_{n-1} \to [0,1]$ with zero set exactly $\{p\}$, then we construct
 $\tilde{f}_n$ to agree with $f_{n-1}$. We observe that we can define a function 
 $F_\alpha^n : D_\alpha^n \to [0,1]$ which extends 
-$f_{n-1} \circ \Phi_\alpha^n|_{\partial D_\alpha^n} : \partial D_\alpha^n \to [0,1]$.
+$f_{n-1} \circ \Phi_\alpha^n|_{\partial D_\alpha^n} : \partial D_\alpha^n \to [0,1]$
+with no zeroes in $\operatorname{Int} D_\alpha^n$ (by Problem 5-2(b)).
 We then define 
 \[
 \tilde{f}_n : X_{n-1} \amalg \p{\coprod_\alpha D_\alpha^n} \to \R
 \]
 by letting $\tilde{f}_n = f_{n-1}$ on $X_{n-1}$ (as we would expect from an extension)
-and $\tilde{f}_n = F^n_\alpha on D_\alpha^n$. Again, $\tilde{f}_n$ is continuous and
+and $\tilde{f}_n = F^n_\alpha$ on $D_\alpha^n$. Again, $\tilde{f}_n$ is continuous and
 descends through the quotient to yield $f_n : X_n \to [0,1]$ whose zero set is exactly
 $\{p\}$.
 
 By letting $f(x) = f_n(x)$ iff $x \in X_n$, we obtain a continuous function 
 (by Proposition 5.2) from $X$ to $[0,1]$ with zero set exactly $\{p\}$. This
 is well defined by construction, since $f_n|_{X_{n-1}} = f_{n-1}$. Thus,
-$X$ is a Hausdorff space.
+$X$ is a Hausdorff space, and since it can be equipped with the cell decomposition
+described above it is a cell complex.
+
+\textbf{(Each $X_n$ satisfies (C))}
+By induction, in parallel with (W). 
+It is obvious that $X_0$ satisfies (C) and (W), since it is a discrete space.
+If we assume $X_{n-1}$ satisfies (C) and (W), note that for any $k$, 
+$1 \le k \le n$, $\Phi_\alpha^k (\partial D_\alpha^k)$ is a compact subset of the 
+CW complex $X_{k-1}$ and therefore by Theorem 5.14 it is contained in a finite 
+subcomplex of $X_{k-1}$. Therefore $X_n$ satisfies (C).
+
+
+\textbf{(Each $X_n$ satisfies (W))}
+By induction, in parallel with (C).
+It is obvious that $X_0$ satisfies (C) and (W), since it is a discrete space. 
+Suppose $X_{n-1}$ satisfies (C) and (W). Then suppose $B \subseteq X_n$ has a closed
+intersection with $\bar{e}$ for each cell $e$ in $X_n$. Then 
+$B \cap X_{n-1}$ is closed in $X_{n-1}$ because $X_{n-1}$ satisfies (W), and 
+$B \cap \overline{e_\alpha^n}$ is closed in $\overline{e_\alpha^n}$ for every such
+cell by assumption, so $q_n^{-1}(B)$ is closed in 
+$X_{n-1} \amalg (\coprod_\alpha D_\alpha^n)$, so $B$ is closed in $X_n$ by definition
+of the quotient topology. Thus $X_n$ satisfies (W).
+
+\textbf{($X$ satisfies (C))}
+This follows directly from the fact that each $X_n$ satisfies (C), since each
+cell of $X$, and the closure of that cell, are entirely contained in $X_n$.
+$X$ satisfies (C).
+
+\textbf{($X$ satisfies (W))}
+Suppose $B \cap \bar{e}$ is closed for every cell $e$ in $X$. Then for each $n$,
+$B \cap X_n$ is closed in $X_n$ since $X_n$ satisfies (W) and is composed of a
+subset of $X$'s cells. Since $B \cap X_n$ is closed for each $n$, by the definition
+of the topology on $X$ we know $B$ is closed in $X$. $X$ satisfies (W).
+
+\textbf{($X$ is a CW complex)}
+Since $X$ is a cell complex which satisfies conditions (C) and (W), $X$ is 
+a CW complex.
 \end{proof}
 
 \section*{Supporting results}
+\renewcommand{\thetheorem}{2.35}
+\begin{exercise}
+Suppose $X$ is a topological space, and for every $p \in X$ there exists a continuous
+function $f : X \to \R$ such that $f^{-1}(0) = \{p\}$. Then $X$ is Hausdorff.
+\end{exercise}
+
 \renewcommand{\thetheorem}{3.77}
 \begin{proposition}
 Let $X \cup_f Y$ be an adjunction space, and let $q : X \sqcup Y \to X \cup_f Y$ be the
@@ -148,4 +193,28 @@ $q(Y \setminus A)$ is an open subspace of $X \cup_f Y$.
 \end{proposition}
 (The text does not specify what $A$ actually is. I assume it is the points which get 
 ``adjuncted'', since that would make the most sense considering (b) and (c).)
+
+\renewcommand{\thetheorem}{5.2}
+\begin{proposition}
+Suppose $X$ is a topological space whose topology is coherent with a family
+$\mathcal{B}$ of subspaces.
+\begin{enumerate}[(a)]
+\item If $Y$ is another topological space, then a map $f : X \to Y$ is continuous 
+if and only if $f|_B$ is continuous for every $B \in \mathcal{B}$.
+\item The map $\coprod_{B \in \mathcal{B}} B \to X$ induced by inclusion of each 
+set $B \hookrightarrow X$ is a quotient map.
+\end{enumerate}
+\end{proposition}
+
+\renewcommand{\thetheorem}{5-2}
+\begin{problem}
+Suppose $D$ is a closed $n$-cell, $n \ge 1$.
+\begin{enumerate}[(a)]
+\item Given any point $p \in \operatorname{Int} D$, there is a continuous function
+$F : D \to [0,1]$ such that $F^{-1}(1) = \partial D$ and $F^{-1}(0)=\{p\}$.
+\item Given a continuous function $f : \partial D \to [0,1]$, $f$ extends to a
+continuous function $F : D \to [0,1]$ that is strictly positive in 
+$\operatorname{Int} D$.
+\end{enumerate}
+\end{problem}
 \end{document}
