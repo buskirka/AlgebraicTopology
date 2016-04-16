@@ -5,6 +5,7 @@
 
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage{tikz}
+\usepackage{mathtools}
 \usepackage[margin=1in]{geometry}
 
 \newtheorem{theorem}[subsection]{Theorem}
@@ -30,13 +31,35 @@
 
 \section{Associativity of Fundamental Group Operator}
 \begin{theorem}
-The fundamental group operator $\cdot$ is associative; that is,
+The fundamental group operator ``$\cdot$'', defined as an operation 
+on paths, is associative; that is,
 \[ 
 [f] \cdot ([g] \cdot [h]) 
 = 
 ([f] \cdot [g]) \cdot [h]
 \]
+when this is actually defined.
 \end{theorem}
+\begin{proof}
+Suppose $f$ is a path from $p_0$ to $p_1$, $g$ is a path from $p_1$ to
+$p_2$, and $h$ is a path from $p_2$ to $p_3$.
+
+Since $f(1)=g(0)$, $f \cdot g$ exists, and is a path from $p_0$ to $p_2$.
+So $(f \cdot g)(1) = h(0)$ and so $(f \cdot g) \cdot h$ exists. By a very
+similar argument, $f \cdot (g \cdot h)$ exists.
+
+Then we have a homotopy map between $(f \cdot g) \cdot h$ and 
+$f \cdot (g \cdot h)$ defined by $H(x,t)$,
+\[
+H(x,t)
+=
+\begin{dcases}
+f\p{\frac{x}{0.25+0.25t)}} & x \in [0, 0.25 + 0.25t] \\
+g\p{\frac{x-0.25-0.25t}{0.25}} & x \in [0.25+0.25t, 0.5 + 0.25t] \\
+h\p{\frac{x-0.5-0.25t}{0.5-0.25t}} & x \in [0.5 + 0.25t,1]
+\end{dcases}
+\]
+\end{proof}
 
 \section{$\pi_1(\R^n,0)$}
 
