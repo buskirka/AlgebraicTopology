@@ -35,10 +35,18 @@ $X_\alpha$, $\alpha \in A$. Then
 \[ \varphi : \bigoplus_{\alpha \in A} H_p (X_\alpha) \to H_p (X) \]
 where the restriction of $\varphi$ to each component is the inclusion map
 \[ \varphi|_{H_p(X_\alpha)} = i_\alpha : H_p(X_\alpha) \to H_p(X) \]
-
 \end{theorem}
 \begin{proof}
-
+The image of any singular simplex must lie entirely in one path component.
+Consequently, we may define inclusion maps on the chain groups 
+$(i_\alpha)_\# : C_p(X_\alpha) \to C_p(X)$, which may be combined into an
+isomorphism
+\[
+i_\# : \bigoplus_{\alpha \in A} C_p (X_\alpha) \to C_p (X)
+\]
+since the collection of simplicial $p$-simplices on $X$ can be partitioned
+into the different simplicial $p$-simplices on the respective $X_\alpha$
+connected components. Since free groups 
 \end{proof}
 
 \end{document}
